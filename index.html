@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>To The Most Beautiful Girl In My Life ❤️</title>
+<meta name="description" content="A love letter, a memory book, and a promise — made only for you.">
+
+<!-- Google Fonts: Playfair Display (headings), Great Vibes (handwritten/script), Quicksand (body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Great+Vibes&family=Quicksand:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- =========================================================
+     LOADING SCREEN
+     A blooming heart that draws itself in, then dissolves
+     into petals as the page reveals itself.
+========================================================= -->
+<div id="loading-screen">
+  <div class="loader-heart-wrap">
+    <svg class="loader-heart" viewBox="0 0 100 90" width="90" height="80">
+      <path class="loader-heart-path" d="M50 82
+        C 20 60, 2 40, 2 22
+        C 2 6, 16 -2, 30 6
+        C 38 10, 46 18, 50 26
+        C 54 18, 62 10, 70 6
+        C 84 -2, 98 6, 98 22
+        C 98 40, 80 60, 50 82 Z"/>
+    </svg>
+    <p class="loader-text">gathering all my love<span class="loader-dots"><span>.</span><span>.</span><span>.</span></span></p>
+  </div>
+</div>
+
+<!-- =========================================================
+     AMBIENT CANVAS LAYERS
+     cursor glow + cursor trail sit above everything except modals
+========================================================= -->
+<div id="cursor-glow"></div>
+<canvas id="cursor-trail-canvas"></canvas>
+
+<!-- Fixed background atmosphere: gradient, stars, floating hearts, falling petals -->
+<div id="bg-atmosphere" aria-hidden="true">
+  <div class="gradient-veil"></div>
+  <div id="stars-layer"></div>
+  <div id="hearts-layer"></div>
+  <div id="petals-layer"></div>
+</div>
+
+<!-- =========================================================
+     SIDE DOT NAVIGATION (desktop) — quiet wayfinding, not a menu
+========================================================= -->
+<nav id="dot-nav" aria-label="Section navigation">
+  <a href="#hero" class="dot active" data-label="Us"></a>
+  <a href="#letter" class="dot" data-label="Letter"></a>
+  <a href="#memories" class="dot" data-label="Memories"></a>
+  <a href="#counter" class="dot" data-label="Time"></a>
+  <a href="#reasons" class="dot" data-label="Reasons"></a>
+  <a href="#music" class="dot" data-label="Our Song"></a>
+  <a href="#surprise" class="dot" data-label="Surprise"></a>
+</nav>
+
+<main>
+
+  <!-- =========================================================
+       HERO SECTION
+  ========================================================= -->
+  <section id="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">a small universe, made of us</p>
+
+      <h1 class="hero-title">
+        To The Most Beautiful<br>
+        Girl In My Life <span class="hero-heart-emoji">❤️</span>
+      </h1>
+
+      <div class="names-row">
+        <span class="name name-one" id="name-one">Him</span>
+        <button id="hero-heart-btn" class="pulse-heart" aria-label="Our hearts, beating as one">
+          <svg viewBox="0 0 32 29" width="34" height="30">
+            <path d="M16 29 C 6 21, 0 13, 0 7 C 0 2, 5 -1, 9.5 1.8 C 12.5 3.6, 15 6.5, 16 9 C 17 6.5, 19.5 3.6, 22.5 1.8 C 27 -1, 32 2, 32 7 C 32 13, 26 21, 16 29 Z"/>
+          </svg>
+        </button>
+        <span class="name name-two" id="name-two">Her</span>
+      </div>
+
+      <p class="hero-subtitle">
+        Every love story is beautiful, but ours is my favorite —
+        still being written, one ordinary day and one extraordinary heart at a time.
+      </p>
+
+      <a href="#letter" class="open-heart-btn">
+        <span>Open My Heart</span>
+        <svg class="btn-heart" viewBox="0 0 24 22" width="18" height="16">
+          <path d="M12 22 C 4 16, 0 10, 0 5.5 C 0 1.5, 4 -0.5, 7 1.3 C 9.2 2.6, 11 4.8, 12 6.8 C 13 4.8, 14.8 2.6, 17 1.3 C 20 -0.5, 24 1.5, 24 5.5 C 24 10, 20 16, 12 22 Z"/>
+        </svg>
+      </a>
+
+      <button class="scroll-cue" id="scroll-cue" aria-label="Scroll down">
+        <span></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       LOVE LETTER SECTION
+       A wax-sealed envelope that cracks open on click,
+       revealing a handwritten letter with a typewriter reveal.
+  ========================================================= -->
+  <section id="letter">
+    <p class="section-eyebrow">before you keep scrolling</p>
+    <h2 class="section-title">A Letter, Just For You</h2>
+    <p class="section-sub">Tap the seal. Read it slowly.</p>
+
+    <div class="envelope-stage">
+      <div class="envelope" id="envelope">
+        <div class="envelope-back"></div>
+        <div class="letter-paper" id="letter-paper">
+          <p class="letter-greeting">My love,</p>
+          <p class="letter-body" id="letter-typewriter"></p>
+          <p class="letter-sign">Forever yours,<br><span id="letter-signature">Him</span></p>
+        </div>
+        <div class="envelope-flap"></div>
+        <div class="wax-seal" id="wax-seal">
+          <span class="seal-heart">❤</span>
+        </div>
+      </div>
+      <p class="envelope-hint" id="envelope-hint">click the seal to open</p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       MEMORIES GALLERY
+       Glass cards, hover tilt, lightbox on click.
+       Replace the .memory-card background/img with real photos —
+       see the comment near .memory-card in style.css
+  ========================================================= -->
+  <section id="memories">
+    <p class="section-eyebrow">our little museum</p>
+    <h2 class="section-title">Moments We've Collected</h2>
+    <p class="section-sub">Every picture, a page from our story.</p>
+
+    <div class="memories-grid" id="memories-grid">
+      <!-- Cards are also generated/duplicable via script.js CONFIG.memories -->
+    </div>
+  </section>
+
+  <!-- =========================================================
+       LOVE COUNTER
+  ========================================================= -->
+  <section id="counter">
+    <p class="section-eyebrow">since the day it all began</p>
+    <h2 class="section-title">Loving You For</h2>
+
+    <div class="counter-grid">
+      <div class="counter-card glass">
+        <span class="counter-num" id="count-days">0000</span>
+        <span class="counter-label">Days</span>
+      </div>
+      <div class="counter-card glass">
+        <span class="counter-num" id="count-hours">00</span>
+        <span class="counter-label">Hours</span>
+      </div>
+      <div class="counter-card glass">
+        <span class="counter-num" id="count-minutes">00</span>
+        <span class="counter-label">Minutes</span>
+      </div>
+      <div class="counter-card glass">
+        <span class="counter-num" id="count-seconds">00</span>
+        <span class="counter-label">Seconds</span>
+      </div>
+    </div>
+
+    <p class="counter-caption">and every single second was worth it.</p>
+
+    <!-- Easy start-date control -->
+    <details class="date-editor">
+      <summary>Change our start date</summary>
+      <div class="date-editor-inner">
+        <label for="start-date-input">First met on</label>
+        <input type="date" id="start-date-input">
+        <button id="save-date-btn" class="mini-btn">Save</button>
+        <p class="date-editor-note">This is saved on this device only.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- =========================================================
+       REASONS I LOVE YOU — 20 flip cards
+  ========================================================= -->
+  <section id="reasons">
+    <p class="section-eyebrow">a list that could never really end</p>
+    <h2 class="section-title">20 Reasons I Love You</h2>
+    <p class="section-sub">Hover a card. Flip it over. This is only the shortlist.</p>
+
+    <div class="reasons-grid" id="reasons-grid">
+      <!-- 20 cards injected by script.js from CONFIG.reasons -->
+    </div>
+  </section>
+
+  <!-- =========================================================
+       MUSIC PLAYER — "our song"
+  ========================================================= -->
+  <section id="music">
+    <p class="section-eyebrow">press play, close your eyes</p>
+    <h2 class="section-title">Our Song</h2>
+
+    <div class="player glass">
+      <div class="player-art">
+        <div class="vinyl" id="vinyl">
+          <span class="vinyl-heart">❤</span>
+        </div>
+      </div>
+
+      <div class="player-body">
+        <p class="track-title" id="track-title">Add "Our Song"</p>
+        <p class="track-sub" id="track-sub">Drop an mp3 into the project and link it in script.js</p>
+
+        <div class="progress-row">
+          <span class="time-elapsed" id="time-elapsed">0:00</span>
+          <div class="progress-bar" id="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+            <div class="progress-thumb" id="progress-thumb"></div>
+          </div>
+          <span class="time-total" id="time-total">0:00</span>
+        </div>
+
+        <div class="player-controls">
+          <button id="play-pause-btn" class="play-btn" aria-label="Play">
+            <svg id="icon-play" viewBox="0 0 20 22" width="16" height="18"><path d="M0 0 L20 11 L0 22 Z"/></svg>
+            <svg id="icon-pause" viewBox="0 0 20 22" width="16" height="18" style="display:none"><rect x="0" y="0" width="7" height="22"/><rect x="13" y="0" width="7" height="22"/></svg>
+          </button>
+
+          <div class="volume-row">
+            <svg viewBox="0 0 24 20" width="18" height="15"><path d="M2 6 H7 L14 0 V20 L7 14 H2 Z"/><path d="M17 4 Q21 10 17 16" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.6">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <audio id="audio-player" preload="none">
+      <!-- <source src="our-song.mp3" type="audio/mpeg"> -->
+    </audio>
+  </section>
+
+  <!-- =========================================================
+       SURPRISE BUTTON — hearts explode, confetti, fireworks, popup
+  ========================================================= -->
+  <section id="surprise">
+    <p class="section-eyebrow">one last thing</p>
+    <h2 class="section-title">Are You Ready?</h2>
+    <p class="section-sub">Don't open this around anything breakable.</p>
+
+    <button id="surprise-btn" class="surprise-btn">
+      <span>Tap For A Surprise</span>
+      <svg viewBox="0 0 24 22" width="20" height="18"><path d="M12 22 C 4 16, 0 10, 0 5.5 C 0 1.5, 4 -0.5, 7 1.3 C 9.2 2.6, 11 4.8, 12 6.8 C 13 4.8, 14.8 2.6, 17 1.3 C 20 -0.5, 24 1.5, 24 5.5 C 24 10, 20 16, 12 22 Z"/></svg>
+    </button>
+  </section>
+
+</main>
+
+<!-- Fireworks / confetti canvas — full screen overlay, drawn only on surprise -->
+<canvas id="fx-canvas"></canvas>
+
+<!-- Surprise popup -->
+<div id="surprise-modal" class="modal-overlay">
+  <div class="modal-card glass">
+    <p class="modal-heart">❤</p>
+    <h3>I Love You Forever ❤️</h3>
+    <p>Whatever today looks like, whatever tomorrow brings —<br>it's always going to be you.</p>
+    <button id="modal-close-btn" class="mini-btn">Close</button>
+  </div>
+</div>
+
+<!-- Lightbox for memories -->
+<div id="lightbox" class="modal-overlay">
+  <button id="lightbox-close" aria-label="Close">&times;</button>
+  <div class="lightbox-inner">
+    <div class="lightbox-media" id="lightbox-media"></div>
+    <p id="lightbox-caption"></p>
+  </div>
+</div>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer>
+  <div class="heartbeat-line">
+    <svg viewBox="0 0 300 40" preserveAspectRatio="none" id="heartbeat-svg">
+      <path d="M0 20 H100 L112 5 L124 35 L136 20 H160 L172 5 L184 35 L196 20 H300"
+            fill="none" stroke="currentColor" stroke-width="2"/>
+    </svg>
+  </div>
+  <p class="footer-quote">"Of all the hearts in all the world, mine found its home in yours."</p>
+  <p class="footer-credit">Made with <span class="footer-heart">❤</span> only for you</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
